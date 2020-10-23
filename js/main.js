@@ -1,6 +1,6 @@
 // // palindroma
 // // chiedere una parola all'utente
-// var parola = prompt("inserire una parola");
+// var parola = prompt("inserire una parola").toLoweCase().trim();
 // console.log(parola);
 //
 // // invocazione del risultato della funzione
@@ -26,7 +26,7 @@
 var numMin = 1
 var numMax = 5
 // far scegliere all'utente pari o dispari
-var pariDispari = (prompt("scegli tra pari e dispari"));
+var pariDispari = (prompt("scegli tra pari e dispari")).toLowerCase().trim();
 while ( (pariDispari != "pari") && (pariDispari != "dispari") ) {
   alert("Attenzione! Scrivere bene pari o dispari");
   pariDispari = (prompt("scegli tra pari e dispari"));
@@ -48,19 +48,22 @@ function getRandomIntInclusive(numMin, numMax) {
 }
 
 // funzione per pariDispari
-function pariDispari(numero) {
+function checkPariDispari(numero) {
   if (numero % 2 == 0) {
     return "pari";
-  } else {
-    return "dispari";
   }
+    return "dispari";
 }
 
 // risultato somma numero user e numero generato dal pc con vincitore
-var somma = 0
-somma = numUser + numPc;
-if (somma == "pari") {
-  console.log("vince il pari");
+var somma = numUser + numPc;
+console.log(somma);
+
+var risultato = checkPariDispari(somma);
+
+
+if (pariDispari === risultato) {
+  console.log("vince il giocatore");
 } else {
-  console.log("vince il dispari");
+  console.log("vince il pc");
 }
